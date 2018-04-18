@@ -7,6 +7,9 @@ var moveSpeed = 5.0;
 var Damping = 6.0;
 var attackRepeatTime = 1;
 
+ var animator: Animator;
+
+
 var TheDammage = 40;
 private var attackTime : float;
 
@@ -16,6 +19,8 @@ private var MoveDirection : Vector3 = Vector3.zero;
 
 function Start ()
 {
+     animator = GetComponent("Animator");
+
 	attackTime = Time.time;
 }
 
@@ -46,6 +51,9 @@ function Update ()
 function lookAt ()
 {
 	GetComponent.<Renderer>().material.color = Color.yellow;
+
+             animator.SetBool("walking", false);
+
 	var rotation = Quaternion.LookRotation(Target.position - transform.position);
 	transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Damping);
 }
@@ -53,7 +61,11 @@ function lookAt ()
 function chase ()
 {
 	GetComponent.<Renderer>().material.color = Color.red;
-	
+
+            
+
+
+
 	moveDirection = transform.forward;
 	moveDirection *= moveSpeed;
 	
@@ -67,10 +79,17 @@ function attack ()
 	{
 		Target.SendMessage("ApplyDammage", TheDammage);
 		Debug.Log("The Enemy Has Attacked");
-		attackTime = Time.time + attackRepeatTime;
 
-	}
+         animator.SetBool("Attack", true);
+
+
+
+		attackTime = Time.time + attackRepeatTime;
+       
+
+     	}
 }
+
 
 function ApplyDammage ()
 {

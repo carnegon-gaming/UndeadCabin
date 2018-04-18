@@ -27,7 +27,22 @@ ModelImporter:
     4300004: Cube
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None__Stand
+    second: {fileID: 2100000, guid: bcb72f5c98b644cc4bf06d55bb2c402f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None__Untitled
+    second: {fileID: 2100000, guid: bcb72f5c98b644cc4bf06d55bb2c402f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None__Untitled_001
+    second: {fileID: 2100000, guid: bcb72f5c98b644cc4bf06d55bb2c402f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
